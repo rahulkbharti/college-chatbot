@@ -6,7 +6,7 @@ const chatbot_open_button = document.getElementById("chatbot-open-button");
 const chatbot_close_button = document.getElementById("chatbot-close-button");
 const chatbot = document.getElementById("chatbot")
 
-const socket = io("$SOCKET_SERVER_URL");
+const socket = io("https://college-chatbot-backend-dy2i.onrender.com");
 
 
 function formatResponse(response) {
