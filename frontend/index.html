@@ -2,199 +2,59 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeyStranger.live | Stranger Video Calling App</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/textChat.css">
-    <style>
-        .start-chating{
-            text-align: center;
-        }
-        .buttons-groups{
-            display: flex;
-            flex-direction: column;
-            padding: 0 50px;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-        }
-        .buttons-groups button{
-            padding: 5px;
-            margin: 5px;
-            border-radius: 5px;
-            width: 150px;
-        }
-        /*@media (min-width: 650px){*/
-        /*    .buttons-groups{*/
-        /*        flex-direction: row;*/
-        /*        !*background-color: red;*!*/
-        /*    }*/
-        /*    .buttons-groups button{*/
-        /*        width: 250px;*/
-        /*    }*/
-        /*}*/
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot REC Ambedkar Nager</title>
 
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
-
-<header>
-    <div class="container">
-        <div class="logo">
-            <a href="\"><img width="34px" src="./img/log4.png" alt="Logo">
-                <h2>HeyStranger</h2></a>
-        </div>
-        <nav>
-            Talk To Stragers and Make Them Friend.
-            <!-- <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul> -->
-        </nav>
-        <div class="menu-toggle" id="total-users">5k+ users</div>
-    </div>
-</header>
-<div class="mobile">
-    <div class="container">
-        <div class="chat-container">
-            <div class="bottom-sheet" id="bottomSheet">
-<!--                <div class="handle-bar" onmousedown="startDrag(event)"></div> &lt;!&ndash; Handle bar &ndash;&gt;-->
-                <!-- Content of the bottom sheet -->
-                <div class="bottom-sheet-content">
-                    <div class="chat-container">
-                        <div class="chat" id="chat" style="">
-                            <div class="start-chating">
-                                <h3>Start Chat</h3>
-                                <div class="buttons-groups">
-                                    <span>Want to switch to </span>
-                                    <button type="button" onclick="StartChatting('video')">Video Chat</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div style="padding: 0px 20px; display: flex;">
-<!--                            <div id="esc-main-text">Click to connect</div>-->
-                            <!-- <div class="message-info">
-                                <button>Text</button>
-                                or
-                                <button> Video</button>
-                            </div> -->
-                            <div class="typing-info" id="is-typing">
-                                &nbsp;Connect
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <button id="esc-btn" style="margin-right: 7px; background-color: #ccc;">
-                                <i style="color: #000;" class="material-icons icon">sync</i>
-                            </button>
-                            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" disabled>
-                            <button id="send-btn"><i class="material-icons icon">send</i></button>
-
-                        </div>
-                    </div>
-                </div>
+    <div class="chatbot" id="chatbot">
+        <header class="chat-header">
+            <div class="logo">
+                <img class="logo-image" src="./res/chatbot_icon.png" alt="chatbot_icon" />
+                <h2 class="logo-title">College Chatbot <small>(REC BOT)</small><br>
+                    <small>Ask College Related Queries.</small>
+                </h2>
             </div>
-        </div>
+            <div class="close-icon">
+                <img id="chatbot-close-button" src="./res/Minus.png" alt="" />
+            </div>
+        </header>
+        <section class="chat-body">
+            <div class="message-box" id="message-box">
+                <div class="message-recieve">
+                    Hello I Am Collage chatbot. How I can help you today?
+                </div>
+                <div class="message-send">How Many Branches in this College?</div>
+                <div class="message-recieve">
+                    Hello I Am Collage chatbot. How I can help you today?
+                </div>
+                <div class="message-send">How Many Branches in this College?</div>
+            </div>
+            <div class="clear-both"></div>
+            <footer class="message-input">
+                <div class="message-field">
+                    <input id="text-input" type="text" placeholder="Ask..." autocomplete="off" />
+                    <button id="send-button">
+                        <img src="./res/Send.svg" alt="send" />
+                    </button>
+                </div>
+            </footer>
+        </section>
     </div>
-</div>
-
-<script>
-    let isDragging = false;
-    let startY, startHeight, currentY, diffY;
-    const bottomSheet = document.getElementById('bottomSheet');
-
-    function startDrag(e) {
-        isDragging = true;
-        startY = e.clientY || e.touches[0].clientY;
-        startHeight = bottomSheet.offsetHeight;
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', stopDrag);
-        e.preventDefault(); // Prevent default mouse behavior
-    }
-
-    function drag(e) {
-        if (!isDragging) return;
-        currentY = e.clientY || e.touches[0].clientY;
-        diffY = startY - currentY;
-        const newHeight = startHeight + diffY;
-        if (newHeight >= 100) { // Adjust minimum height as needed
-            bottomSheet.style.height = `${newHeight}px`;
-            // let chatbody = document.getElementById("chat");
-            // chatbody.style.height = `${newHeight - 500}px`;
-        }
-    }
-
-    function stopDrag() {
-        isDragging = false;
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', stopDrag);
-    }
-
-    // Automatically open the bottom sheet when the page loads
-    window.onload = function () {
-        bottomSheet.classList.add('show-bottom-sheet');
-    };
-
-    // window.onresize = () => {
-    //   let chatBody = document.getElementById("chat");
-    //   if(window.innerHeight < 500){
-    //     chatBody.style.height = window.innerHeight - 400 +"px";
-    //     bottomSheet.style.height = window.innerHeight - 180+"px";
-    //   }else{
-    //     bottomSheet.style.height = window.innerHeight - 300 +"px";
-    //     chatBody.style.height = window.innerHeight - 400 + "px";
-    //   }
-
-    //   chatBody.scrollTop = chatBody.scrollHeight;
-    // }
-</script>
-
-<script src="./socket.io.min.js"></script>
-<script src="./js/socket.js" type="module"></script>
-
-
-<script>
-    function StartChatting(){
-       localStorage.setItem("type","video");
-       window.location.href = "./videoChat.html";
-    }
-    window.onload = ()=>{
-
-    }
-</script>
-<script type="module">
-    // import {sendMessage} from "./js/dataChannel.js";
-    // import {getMatch} from "./js/socket.js";
-    //
-    // document.getElementById("esc-btn").onclick = () => {
-    //     const usernameInput =localStorage.getItem("username");
-    //     const interestsInput =localStorage.getItem("interests").split(",");
-    //     const chatType = localStorage.getItem("type");
-    //     // const chatType = document.getElementById("chat-type");
-    //     // const username = usernameInput.value.trim();
-    //     // const interests = interestsInput.value.trim().split(",").map((i) => i.trim());
-    //     if (usernameInput) {
-    //         console.log({username:usernameInput,  interests:interestsInput,chatType});
-    //         getMatch({username:usernameInput,  interests:interestsInput,chatType});
-    //     }
-    //     else{
-    //         alert("User name is not defined");
-    //     }
-    // };
-    // let message = document.getElementById("message-input");
-    // document.getElementById("send-btn").onclick =()=>{
-    //     const chat = document.getElementById("chat");
-    //     chat.innerHTML+=`<div class="message sent">
-    //             <div class="message-text">${message.value}</div>
-    //           </div>`;
-    //     sendMessage(message.value);
-    //     message.value ="";
-    // }
-</script>
+    <button class="chatbot-open" id="chatbot-open-button">
+        <img class="logo-image" src="./res/chatbot_icon.png" alt="chatbot_icon" />
+    </button>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+    <!-- <script src="./js/chatbot.js"></script> -->
 </body>
 
 </html>

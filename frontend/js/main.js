@@ -6,7 +6,7 @@ const chatbot_open_button = document.getElementById("chatbot-open-button");
 const chatbot_close_button = document.getElementById("chatbot-close-button");
 const chatbot = document.getElementById("chatbot")
 
-const socket = io("http://localhost:8000/");
+const socket = io("$SOCKET_SERVER_URL");
 
 
 function formatResponse(response) {
