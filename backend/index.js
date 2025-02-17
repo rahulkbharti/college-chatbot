@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import  {model, generationConfig} from "./chatbot.js";
 import cors from "cors";
 import context from "./collegeinfo.js";
-
+import history from "./context/info.js"
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -39,8 +39,16 @@ async function InitiateChatBot() {
                     text: context
                 }
             ]
+           },
+           {
+            "role":"model",
+            "parts":[
+                {
+                    "text":"Hello! I am a chatbot, I can help you with your queries. How can I help you today?"
+                }
+            ]
            }
-        ],
+        ].concat(history)
     });
 
     // Function to send a message and get a response

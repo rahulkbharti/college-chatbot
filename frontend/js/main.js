@@ -27,7 +27,9 @@ function formatResponse(response) {
 
 socket.on("welcome", (e) => {
   console.log(e);
-  message_box.innerHTML = ""
+  message_box.innerHTML = ` <div class="message-recieve">
+            Hello I Am Collage chatbot. How I can help you today?
+          </div>;`
 })
 socket.on("message", (message) => {
   console.log(message);
