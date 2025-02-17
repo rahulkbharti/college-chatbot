@@ -42,7 +42,7 @@ p {
 
 .chatbot {
   width: 100%;
-  border-radius: 0.875rem;
+  border-radius: 7px;
   background: #e6e7eb;
   overflow: hidden;
 }
@@ -77,29 +77,32 @@ p {
 .chat-header {
   display: flex;
   width: 100%;
-  height: 3.9375rem;
-  padding: 0rem 1.875rem;
+  /* height: 2rem; */
+  line-height: 0;
+  padding: 6px 10px;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   background: #1e2a3a;
 }
-
+#chatbot-close-button {
+  width: 34px;
+}
 .close-icon img {
   cursor: pointer;
 }
 
 .message-recieve {
-  margin-top: 25px;
-  margin-left: 25px;
+  margin-top: 10px;
+  margin-left: 15px;
   float: left;
-  width: 70%;
-  padding: 1.25rem;
+  width: 75%;
+  padding: 10px;
   border-radius: 1rem;
   background: #cbd5e0;
   color: #101729;
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -112,16 +115,16 @@ p {
 }
 
 .message-send {
-  width: 70%;
-  margin-top: 25px;
-  margin-right: 25px;
+  width: 75%;
+  margin-top: 10px;
+  margin-right: 15px;
   float: right;
-  padding: 1.25rem;
+  padding: 10px;
   border-radius: 0.8125rem;
   background: #1e2a3a;
   color: #cbd5e0;
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -129,26 +132,26 @@ p {
 }
 
 .message-field {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   /* width: calc(100% - 40px); */
   /* padding: 1.25rem 1.875rem; */
   justify-content: space-between;
   align-items: center;
-  border-radius: 0.875rem;
+  border-radius: 5px;
   background: #cbd5e0;
-  margin: 20px 30px;
+  margin: 10px;
   overflow: hidden;
 }
 
 .message-field input {
-  padding: 1rem 1rem;
+  padding: 10px;
   background: #cbd5e0;
   border: none;
   outline: none;
   color: #1e2a3a;
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -162,13 +165,17 @@ p {
   outline: none;
   cursor: pointer;
 }
-
+.message-field button img {
+  width: 20px;
+}
 .chatbot {
-  width: 423px;
+  width: 300px;
   position: fixed;
-  bottom: 100px;
-  right: 100px;
+  bottom: 30px;
+  right: 30px;
+  /* height: 500px; */
   display: none;
+  font-size: 14px;
 }
 
 .chatbot-open {
@@ -180,8 +187,8 @@ p {
   width: 60px;
   height: 60px;
   position: fixed;
-  bottom: 100px;
-  right: 100px;
+  bottom: 40px;
+  right: 40px;
   box-shadow: 0px 0px 20px #101729;
   cursor: pointer;
 }
