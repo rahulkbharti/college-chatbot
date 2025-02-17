@@ -12,9 +12,17 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 
 <body>
+  <div class="qr-code" id="qr-code">
+    <div class="qr-code-content">
+      <h2>Scan QR Code to Open Chatbot</h2>
+      <br>
+      <div id="qrOutput"></div>
+    </div>
+  </div>
   <div class="chatbot" id="chatbot">
     <header class="chat-header">
       <div class="logo">
@@ -49,10 +57,25 @@
       </footer>
     </section>
   </div>
-  <button class="chatbot-open" id="chatbot-open-button">
+
+  <button type="button" class="chatbot-open" id="chatbot-open-button">
     <img class="logo-image" src="./res/chatbot_icon.png" alt="chatbot_icon" />
   </button>
   <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" type="module"></script>
+  <script>
+    const websiteUrl = "https://college-chatbot-l72q.onrender.com/"; // Replace with your website URL
+    const qrOutput = document.getElementById("qrOutput");
+    QRCode.toCanvas(websiteUrl, (error, canvas) => {
+      if (error) {
+        console.error("QR Code generation failed:", error);
+        return;
+      }
+      canvas.style.width = "200px";
+      canvas.style.height = "200px";
+      qrOutput.innerHTML = ""; // Clear previous QR codes
+      qrOutput.appendChild(canvas);
+    });
+  </script>
   <script src="./js/main.js" type="module"></script>
   <!-- <script src="./js/chatbot.js"></script> -->
 </body>

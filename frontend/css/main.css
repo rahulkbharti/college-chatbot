@@ -179,6 +179,7 @@ p {
 }
 
 .chatbot-open {
+  /* display: none; */
   border: none;
   outline: none;
   background: #1e2a3a;
@@ -191,4 +192,26 @@ p {
   right: 40px;
   box-shadow: 0px 0px 20px #101729;
   cursor: pointer;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("../assets/Wallpaper.jpg"); /* Replace with your image URL */
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+.qr-code {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+.qr-code h2 {
+  font-size: large;
+  color: #fff;
+}
+#qrOutput {
+  border-radius: 20px;
+  overflow: hidden;
 }
