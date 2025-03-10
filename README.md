@@ -11,3 +11,7 @@ This project is a College Chatbot built using the Gemini framework, designed to 
 ![API Integration](https://img.shields.io/badge/API-Integration-blue)
 ![Gemini](https://img.shields.io/badge/Gemini-Framework-yellow)
 ![Socket.io](https://img.shields.io/badge/Socket.io-Realtime%20Web-silver)
+
+### Output :
+![image](https://github.com/user-attachments/assets/e3d6415e-9e33-499e-885d-b384188319e1)
+
